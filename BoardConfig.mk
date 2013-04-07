@@ -1,0 +1,160 @@
+# Copyright (C) 2009 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
+# WARNING: This line must come *before* including the proprietary
+# variant, so that it gets overwritten by the parent (which goes
+# against the traditional rules of inheritance).
+
+BOARD_SKIP_ANDROID_DOC_BUILD := true
+BOARD_VENDOR := oppo
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_DIR)/include
+TARGET_KERNEL_SOURCE := kernel/apq8064
+TARGET_KERNEL_CONFIG := find5_defconfig
+
+# Disabled
+USE_CAMERA_STUB := true
+
+# Achitecture / Platform
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_BOARD_PLATFORM := msm8960
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_CPU_ABI  := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+# Kernel
+BOARD_KERNEL_BASE := 0x80200000
+BOARD_KERNEL_PAGE_SIZE := 2048
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
+KERNEL_HAS_GETTIMEOFDAY_HELPER := true
+
+# Krait Optimizations
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+TARGET_USE_KRAIT_PLD_SET := true
+TARGET_KRAIT_BIONIC_PLDOFFS := 10
+TARGET_KRAIT_BIONIC_PLDTHRESH := 10
+TARGET_KRAIT_BIONIC_BBTHRESH := 64
+TARGET_KRAIT_BIONIC_PLDSIZE := 64
+
+# Audio   
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_SEPARATED_AUDIO_INPUT := true
+BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER	:= true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+
+# Bootloader
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_BOOTLOADER_BOARD_NAME := find5 
+TARGET_NO_BOOTLOADER := true
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
+# Flags
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+
+# Preload bootanimation
+TARGET_BOOTANIMATION_PRELOAD		:= true
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+
+# GPS
+BOARD_USES_QCOM_GPS := true
+
+# Graphics
+BOARD_EGL_CFG := device/oppo/find5/configs/egl.cfg
+BUILD_EMULATOR_OPENGL := false
+COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
+TARGET_NO_HW_VSYNC := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
+TARGET_USES_OVERLAY := true
+USE_OPENGL_RENDERER := true
+
+# USB
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# Wifi
+#BOARD_HAS_QCOM_WLAN := true
+BOARD_WLAN_DEVICE := qcwcn 
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
+
+# OPPO FIND5 PARTITION LAYOUT 
+#DDR -> /dev/block/mmcblk0p15
+#aboot -> /dev/block/mmcblk0p17
+#boot -> /dev/block/mmcblk0p18
+#cache -> /dev/block/mmcblk0p22
+#m9kefs1 -> /dev/block/mmcblk0p12
+#m9kefs2 -> /dev/block/mmcblk0p13
+#m9kefs3 -> /dev/block/mmcblk0p14
+#m9kefsc -> /dev/block/mmcblk0p16
+#misc -> /dev/block/mmcblk0p23
+#modem -> /dev/block/mmcblk0p1
+#modemst1 -> /dev/block/mmcblk0p8
+#modemst2 -> /dev/block/mmcblk0p9
+#oppodycnvbk -> /dev/block/mmcblk0p10
+#oppostanvbk -> /dev/block/mmcblk0p11
+#pad -> /dev/block/mmcblk0p7
+#persist -> /dev/block/mmcblk0p21
+#recovery -> /dev/block/mmcblk0p24
+#reserve1 -> /dev/block/mmcblk0p25
+#reserve2 -> /dev/block/mmcblk0p26
+#reserve3 -> /dev/block/mmcblk0p27
+#reserve4 -> /dev/block/mmcblk0p28
+#rpm -> /dev/block/mmcblk0p5
+#sbl1 -> /dev/block/mmcblk0p2
+#sbl2 -> /dev/block/mmcblk0p3
+#sbl3 -> /dev/block/mmcblk0p4
+#sdcard -> /dev/block/mmcblk0p29
+#system -> /dev/block/mmcblk0p19
+#tz -> /dev/block/mmcblk0p6
+#userdata -> /dev/block/mmcblk0p20
+
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4 		:= true
+BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 10485760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 1073741824
+BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 2147483648
+BOARD_FLASH_BLOCK_SIZE 			:= 131072
+BOARD_VOLD_MAX_PARTITIONS 		:= 30
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR 	:= true
+BOARD_WANTS_EMMC_BOOT := true
+BOARD_SUPPRESS_EMMC_WIPE := true
