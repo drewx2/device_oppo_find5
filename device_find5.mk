@@ -49,16 +49,26 @@ PRODUCT_COPY_FILES += \
     device/oppo/find5/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
 
 # NFCEE access control
-#ifeq ($(TARGET_BUILD_VARIANT),user)
-#    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access.xml
-#else
-#    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access_debug.xml
-#endif
-#PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access_debug.xml
+endif
+
+PRODUCT_COPY_FILES += \
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 # oppo BT audio config
 #PRODUCT_COPY_FILES += device/oppo/find5/configs/AudioBTID.csv:/system/etc/AudioBTID.csv
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	VisualizationWallpapers \
+	librs_jni
 
 # QC thermald config
 PRODUCT_COPY_FILES += \
