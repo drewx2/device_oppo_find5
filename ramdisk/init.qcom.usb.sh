@@ -80,6 +80,8 @@ case "$usbcurrentlimit" in
 	;;
     esac
 esac
+
+
 #
 # Allow USB enumeration with default PID/VID
 #
@@ -88,6 +90,7 @@ esac
 # setprop sys.usb.config.extra diag
 # setprop persist.service.adb.enable 1
 #endif
+
 baseband=`getprop ro.baseband`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
