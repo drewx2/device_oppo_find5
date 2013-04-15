@@ -36,9 +36,7 @@ lib/libalsautils.so
 lib/libaudcal.so
 lib/libaudioalsa.so
 lib/libaudioparsers.so
-## possibly build out libaudioutils ##
-#lib/libaudioutils.so
-lib/libaudioparameter.so
+#lib/libaudioparameter.so
 
 
 # Graphics
@@ -81,10 +79,6 @@ lib/liboemcamera.so
 # Media libraries
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
-vendor/lib/libwvm.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libWVStreamControlAPI_L3.so
-#libmm-audio-resampler.so
 lib/libOmxAacDec.so
 lib/libOmxWmaDec.so
 #lib/libqdutils.so
@@ -169,6 +163,9 @@ etc/firmware/vidc.mdt
 
 lib/hw/lights.msm8960.so
 
+vendor/lib/libwvm.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/hw/power.qcom.so
 lib/lib_dlb_msd.so

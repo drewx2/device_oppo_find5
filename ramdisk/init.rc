@@ -240,10 +240,6 @@ on post-fs-data
 
     # create the lost+found directories, so as to enforce our permissions
     mkdir /data/lost+found 0770 root root
-    
-   # VENDOR_EDIT
-    chmod 0660 /dev/block/mmcblk0p26
-    chown root system /dev/block/mmcblk0p26
 
     # create directory for DRM plug-ins - give drm the read/write access to
     # the following directory.
@@ -349,17 +345,6 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
-    chown system system /sys/devices/i2c-4/4-0030/test_flash
-    chown system system /sys/devices/i2c-4/4-0030/torch_control
-
-#ifdef VENDOR_EDIT
-#zhengzk add on 2013-01-16 for camera display bluescreen
-	write /sys/module/msm_rtb/parameters/filter 32
-#endif /* VENDOR_EDIT */
-
-#add by chendx for charging settings 2012-10-30
-    chown system system /sys/bus/platform/devices/pm8921-charger/pm8921_chg
-
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,704512,4096,16384,110208
@@ -378,10 +363,6 @@ on boot
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
-
-# Run sysinit
-    exec /system/bin/sysinit
-
     class_start core
     class_start main
 
@@ -390,15 +371,6 @@ on nonencrypted
 
 on charger
     class_start charger
-
-# add for saving power
-    start qcom-post-boot
-# end add
-
-# add for fix mdm bug, or mdm will reset repeatly    
-    start qcom-c_core-sh
-    start qcom-c_main-sh
-# end add 
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -460,7 +432,7 @@ service servicemanager /system/bin/servicemanager
     onrestart restart zygote
     onrestart restart media
     onrestart restart surfaceflinger
-    onrestart restart sensorservice 
+#    onrestart restart sensorservice 
     onrestart restart drm
 
 service vold /system/bin/vold
@@ -490,11 +462,11 @@ service surfaceflinger /system/bin/surfaceflinger
     group graphics drmrpc
     onrestart restart zygote
 
-service sensorservice /system/bin/sensorservice
-    class main
-    user  root
+#service sensorservice /system/bin/sensorservice
+#    class main
+#    user  root
 
-service zygote /system/xbin/strace -tt -o/data/media/strace-cm10.1.txt /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
+service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     class main
     socket zygote stream 660 root system
     onrestart write /sys/android_power/request_state wake
@@ -505,7 +477,8 @@ service zygote /system/xbin/strace -tt -o/data/media/strace-cm10.1.txt /system/b
 service drm /system/bin/drmserver
     class main
     user drm
-    group drm system inet drmrpc sdcard_r
+#    group drm system inet drmrpc sdcard_r
+    group drm system inet drmrpc
 
 service media /system/bin/mediaserver
     class main
@@ -516,7 +489,7 @@ service media /system/bin/mediaserver
 service bootanim /system/bin/bootanimation
     class main
     user graphics
-    group system audio graphics
+    group graphics
     disabled
     oneshot
 
@@ -526,14 +499,14 @@ service bootanim /system/bin/bootanimation
 #    user bluetooth
 #    group bluetooth net_bt_admin
 
-service bluetoothd /system/bin/bluetoothd -n
-    class main
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
+#service bluetoothd /system/bin/bluetoothd -n
+#    class main
+#    socket bluetooth stream 660 bluetooth bluetooth
+#    socket dbus_bluetooth stream 660 bluetooth bluetooth
+#    # init.rc does not yet support applying capabilities, so run as root and
+#    # let bluetoothd drop uid to bluetooth with the right linux capabilities
+#    group bluetooth net_bt_admin misc
+#    disabled
 
 service installd /system/bin/installd
     class main

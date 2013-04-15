@@ -15,14 +15,12 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# call board specific makefile
-$(call inherit-product, device/oppo/find5/apq8064.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 DEVICE_PACKAGE_OVERLAYS += \
 	device/oppo/find5/overlay
 
-# Get the long list of APNs
+# APNs
 PRODUCT_COPY_FILES += \
 	device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
@@ -45,8 +43,25 @@ PRODUCT_COPY_FILES += \
     device/oppo/find5/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/oppo/find5/ramdisk/wlan.rle:root/wlan.rle \
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/oppo/find5/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
+
+# Qualcomm scripts
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/configs/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
+    device/oppo/find5/configs/init.goldfish.sh:system/etc/init.goldfish.sh \
+    device/oppo/find5/configs/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    device/oppo/find5/configs/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    device/oppo/find5/configs/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    device/oppo/find5/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    device/oppo/find5/configs/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+    device/oppo/find5/configs/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+    device/oppo/find5/configs/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    device/oppo/find5/configs/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+    device/oppo/find5/configs/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    device/oppo/find5/configs/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
+    device/oppo/find5/configs/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
+    device/oppo/find5/configs/usf_post_boot.sh:system/etc/usf_post_boot.sh
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
@@ -60,8 +75,63 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
-# oppo BT audio config
-#PRODUCT_COPY_FILES += device/oppo/find5/configs/AudioBTID.csv:/system/etc/AudioBTID.csv
+## PACKAGES ##
+
+# Audio
+PRODUCT_PACKAGES += \
+	alsa.msm8960 \
+	audio.primary.default \
+	audio.primary.msm8960 \
+	audio.a2dp.default \
+    audio_policy.default \
+	audio_policy.msm8960 \
+    audio.r_submix.default \
+    libalsa-intf \
+    libaudioutils \
+	libaudio-resampler
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    hci_qcomm_init
+
+# Camera
+#PRODUCT_PACKAGES += \
+    camera.msm8960 \
+	libmmcamera_interface2 \
+	libmmcamera_interface
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+# Graphics
+PRODUCT_PACKAGES += \
+    libgenlock \
+    liboverlay \
+    copybit.msm8960 \
+    gralloc.msm8960 \
+    hwcomposer.msm8960
+
+# GPS
+PRODUCT_PACKAGES += \
+	gps.default \
+	libloc_adapter \
+	libgps.utils \
+	libloc_eng \
+	libloc_api_v02
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+	device/oppo/find5/configs/gps.conf:system/etc/gps.conf
+
+# HDMI
+PRODUCT_PACKAGES += \
+    hdmid
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8960
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -70,26 +140,66 @@ PRODUCT_PACKAGES += \
 	VisualizationWallpapers \
 	librs_jni
 
-# QC thermald config
-PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/thermald-8064.conf:/system/etc/thermald-8064.conf \
-	device/oppo/find5/configs/thermald-8960.conf:/system/etc/thermald-8960.conf \
-	device/oppo/find5/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
+# Keystore
+PRODUCT_PACKAGES += \
+	keystore.msm8960
 
-# vold config
-PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
+# NFC
+PRODUCT_PACKAGES += \
+    libnfc \
+    libnfc_ndef \
+    libnfc_jni \
+    Nfc \
+    Tag \
+    com.android.nfc_extras
 
-# wifi config
-PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf
+# OMX
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libstagefrighthw
 
-# Sound configs
+# Power
+PRODUCT_PACKAGES += \
+    power.default
+
+# Recovery
+PRODUCT_PACKAGES += \
+    init.recovery.qcom.rc \
+    choice_fn \
+    power_test \
+    offmode_charging \
+    detect_key
+
+# QCOM rngd
+PRODUCT_PACKAGES += \
+    qrngd
+
+# USB
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+
+## Config Files ##
+
+# GPS config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
+    device/oppo/find5/configs/gps.conf:system/etc/gps.conf
+
+# Input device config
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
+    device/oppo/find5/idc/qwerty.idc:system/usr/idc/qwerty.idc
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
@@ -113,29 +223,59 @@ PRODUCT_COPY_FILES += \
     device/oppo/find5/keylayout/Vendor_05ac_Product_0239.kl:/system/usr/keylayout/Vendor_05ac_Product_0239.kl \
     device/oppo/find5/keylayout/Vendor_22b8_Product_093d.kl:/system/usr/keylayout/Vendor_22b8_Product_093d.kl 
 
-# Input device config
+# Media config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
-    device/oppo/find5/idc/qwerty.idc:system/usr/idc/qwerty.idc
+    device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
 
-# NFC
-PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_ndef \
-    libnfc_jni \
-    Nfc \
-    Tag \
-    com.android.nfc_extras
+# QC thermald config
+PRODUCT_COPY_FILES += \
+	device/oppo/find5/configs/thermald-8064.conf:/system/etc/thermald-8064.conf \
+	device/oppo/find5/configs/thermald-8960.conf:/system/etc/thermald-8960.conf \
+	device/oppo/find5/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
 
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
+# Sound configs
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
+    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
+
+# Vold config
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
+
+
+# WPA supplicant config
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+## Permissions ##
 
 # Permissions
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.nfc.xml:/system/etc/permissions/android.hardware.nfc.xml \
-        frameworks/base/nfc-extras/com.android.nfc_extras.xml:/system/etc/permissions/com.android.nfc_extras.xml \
-        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:/system/etc/permissions/android.hardware.telephony.gsm.xml
+	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+	frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardwardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.compass.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -151,6 +291,31 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapconcurrentstart=2097152 \
     keyguard.no_require_sim=true
     
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
+    debug.composition.type=dyn \
+    debug.egl.hw=1 \
+	debug.mdpcomp.maxlayer=2 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.hw=1 \
+    dev.pm.dyn_samplingrate=1 \
+    lpa.decode=false \
+	mpq.audio.decode=true \
+    persist.audio.fluence.mode=endfire \
+    persist.audio.vr.enable=false \
+    persist.audio.handset.mic=digital \
+    persist.audio.speaker.location=high \
+    persist.gps.qmienabled=true \
+    persist.thermal.monitor=true \
+    ro.baseband.arch=msm \
+    ro.qualcomm.bt.hci_transport=smd \
+    ro.opengles.version=131072 \
+    ro.product.wireless=WCN3660 \
+    ro.qc.sdk.audio.fluencetype=fluence \
+	ro.qc.sdk.audio.ssr=false \
+    ro.qualcomm.bt.hci_transport=smd \
+    ro.use_data_netmgrd=true \
+    wifi.interface=wlan0
 
 # We have enough space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

@@ -3,22 +3,8 @@ on early-init
     mkdir /firmware 0771 system system
     symlink /data/tombstones /tombstones
 
-on fs
-	mkdir /system
-	mkdir /data 0771 system system
-	mount_all fstab.qcom
-
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache nosuid nodev barrier=1
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
-	mount vfat /dev/block/mmcblk0p1 /firmware wait ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-    write /data/d2complete 1
-
-   # we will remap this as /mnt/sdcard with the sdcard fuse tool
-   chown media_rw media_rw /data/media
-   setprop ro.crypto.fuse_sdcard true
-
 on boot
-   write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
+#   write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
    start qcamerasvr
 
 on post-fs-data
