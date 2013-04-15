@@ -155,6 +155,7 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+	libmm-omxcore \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
     libOmxCore \
