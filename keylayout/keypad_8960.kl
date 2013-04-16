@@ -114,3 +114,6 @@ key 142   HOME              WAKE_DROPPED
 # Camera Keys
 key 528   FOCUS
 key 766   CAMERA
+
+# Find5 Keys testing
+key 102   HOME
