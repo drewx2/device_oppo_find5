@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter mako occam,$(TARGET_DEVICE)),)
+#ifneq ($(filter mako occam,$(TARGET_DEVICE)),)
 
 LOCAL_PATH:= $(call my-dir)
 
@@ -24,16 +24,16 @@ LOCAL_SRC_FILES := wfc_util_fctrl.c \
                    wfc_util_common.c
 LOCAL_CFLAGS := -Wall \
                 -Werror
-LOCAL_CFLAGS += -DCONFIG_LGE_WLAN_WIFI_PATCH
+LOCAL_CFLAGS += -DCONFIG_FIND5_WLAN
 ifeq ($(BOARD_HAS_QCOM_WLAN), true)
 LOCAL_SRC_FILES += wfc_util_qcom.c
-LOCAL_CFLAGS += -DCONFIG_LGE_WLAN_QCOM_PATCH
+LOCAL_CFLAGS += -DCONFIG_FIND5_WLAN_QCOM
 LOCAL_CFLAGS += -DWLAN_CHIP_VERSION_WCNSS
 endif
 LOCAL_SHARED_LIBRARIES := libcutils
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := lge
+#LOCAL_MODULE_OWNER := lge
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -44,7 +44,7 @@ LOCAL_CFLAGS += -Wall -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT)/bin
 LOCAL_MODULE := conn_init
-LOCAL_MODULE_OWNER := lge
+#LOCAL_MODULE_OWNER := lge
 
 # Make sure the symlinks get created as well.
 LOCAL_REQUIRED_MODULES := WCNSS_qcom_cfg.ini WCNSS_qcom_wlan_nv.bin
@@ -54,7 +54,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := WCNSS_qcom_cfg.ini
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := lge
+#LOCAL_MODULE_OWNER := lge
 include $(BUILD_SYSTEM)/base_rules.mk
 $(LOCAL_BUILT_MODULE): TARGET := /data/misc/wifi/$(LOCAL_MODULE)
 $(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/$(LOCAL_MODULE)
@@ -71,7 +71,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := WCNSS_qcom_wlan_nv.bin
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := lge
+#LOCAL_MODULE_OWNER := lge
 include $(BUILD_SYSTEM)/base_rules.mk
 $(LOCAL_BUILT_MODULE): TARGET := /data/misc/wifi/$(LOCAL_MODULE)
 $(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/$(LOCAL_MODULE)
@@ -84,4 +84,4 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) ln -sf $(TARGET) $(SYMLINK)
 	$(hide) touch $@
 
-endif
+#endif
