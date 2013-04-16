@@ -38,7 +38,6 @@ lib/libaudioalsa.so
 lib/libaudioparsers.so
 #lib/libaudioparameter.so
 
-
 # Graphics
 lib/libc2d2_a3xx.so
 lib/libc2d2_z180.so
