@@ -1385,7 +1385,7 @@ SectionDevice
 		'RX4 DSM MUX':0:CIC_OUT
 		'LINEOUT1 Volume':1:0
 		'LINEOUT3 Volume':1:0
-		'SLIM TX3 MUX':0:ZERO		
+		'SLIM TX3 MUX':0:ZERO
 	EndSequence
 
 	ACDBID	15:1
