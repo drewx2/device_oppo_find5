@@ -309,6 +309,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qmienabled=true \
     persist.thermal.monitor=true \
     ro.baseband.arch=msm \
+	ro.com.google.clientidbase=android-oppo \
     ro.qualcomm.bt.hci_transport=smd \
     ro.opengles.version=131072 \
     ro.product.wireless=WCN3660 \
