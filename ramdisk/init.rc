@@ -428,11 +428,10 @@ service servicemanager /system/bin/servicemanager
     class core
     user system
     group system
-#    critical
+    critical
     onrestart restart zygote
     onrestart restart media
     onrestart restart surfaceflinger
-#    onrestart restart sensorservice 
     onrestart restart drm
 
 service vold /system/bin/vold
@@ -477,7 +476,6 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 service drm /system/bin/drmserver
     class main
     user drm
-#    group drm system inet drmrpc sdcard_r
     group drm system inet drmrpc
 
 service media /system/bin/mediaserver
@@ -498,15 +496,6 @@ service bootanim /system/bin/bootanimation
 #    socket dbus stream 660 bluetooth bluetooth
 #    user bluetooth
 #    group bluetooth net_bt_admin
-
-#service bluetoothd /system/bin/bluetoothd -n
-#    class main
-#    socket bluetooth stream 660 bluetooth bluetooth
-#    socket dbus_bluetooth stream 660 bluetooth bluetooth
-#    # init.rc does not yet support applying capabilities, so run as root and
-#    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-#    group bluetooth net_bt_admin misc
-#    disabled
 
 service installd /system/bin/installd
     class main

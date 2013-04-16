@@ -63,9 +63,7 @@ on fs
 	mount vfat /dev/block/mmcblk0p1 /firmware wait ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
     write /data/d2complete 1
 
-   # we will remap this as /mnt/sdcard with the sdcard fuse tool
-#   chown media_rw media_rw /data/media
-   setprop ro.crypto.fuse_sdcard true
+	setprop ro.crypto.fuse_sdcard true
 
 on boot
     exec system/bin/btnvtool -O
