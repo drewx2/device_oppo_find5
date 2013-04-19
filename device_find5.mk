@@ -17,8 +17,11 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+BOARD_VENDOR := oppo
+TARGET_DEVICE := find5
+
 DEVICE_PACKAGE_OVERLAYS += \
-	device/oppo/find5/overlay
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/overlay
 
 # APNs
 PRODUCT_COPY_FILES += \
@@ -26,54 +29,59 @@ PRODUCT_COPY_FILES += \
 
 # Boot ramdisk setup
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/ramdisk/at.rle:root/at.rle \
-	device/oppo/find5/ramdisk/factorylogo.rle:root/factorylogo.rle \
-	device/oppo/find5/ramdisk/fastboot.rle:root/fastboot.rle \
-    device/oppo/find5/ramdisk/fstab.qcom:root/fstab.qcom \
-	device/oppo/find5/ramdisk/init.at.rc:root/init.at.rc \
-	device/oppo/find5/ramdisk/initlogo.rle:root/initlogo.rle \
-	device/oppo/find5/ramdisk/init.oppo.usb.rc:root/init.oppo.usb.rc \
-    device/oppo/find5/ramdisk/init.target.rc:root/init.target.rc \
-	device/oppo/find5/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-	device/oppo/find5/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
-	device/oppo/find5/ramdisk/init.qcom.rc:root/init.qcom.rc \
-    device/oppo/find5/ramdisk/init.qcom.sh:root/init.qcom.sh \
-    device/oppo/find5/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
-	device/oppo/find5/ramdisk/init.rf.rc:root/init.rf.rc \
-    device/oppo/find5/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
-	device/oppo/find5/ramdisk/wlan.rle:root/wlan.rle \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/at.rle:root/at.rle \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/factorylogo.rle:root/factorylogo.rle \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fastboot.rle:root/fastboot.rle \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fstab.qcom:root/fstab.qcom \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.at.rc:root/init.at.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/initlogo.rle:root/initlogo.rle \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.$(BOARD_VENDOR).usb.rc:root/init.$(BOARD_VENDOR).usb.rc \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.target.rc:root/init.target.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.rf.rc:root/init.rf.rc \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/wlan.rle:root/wlan.rle \
 
 #PRODUCT_COPY_FILES += \
-    device/oppo/find5/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
 
 # Qualcomm scripts
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
-    device/oppo/find5/configs/init.goldfish.sh:system/etc/init.goldfish.sh \
-    device/oppo/find5/configs/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/oppo/find5/configs/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    device/oppo/find5/configs/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    device/oppo/find5/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    device/oppo/find5/configs/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-    device/oppo/find5/configs/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-    device/oppo/find5/configs/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/oppo/find5/configs/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-    device/oppo/find5/configs/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    device/oppo/find5/configs/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
-    device/oppo/find5/configs/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
-    device/oppo/find5/configs/usf_post_boot.sh:system/etc/usf_post_boot.sh
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.goldfish.sh:system/etc/init.goldfish.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/usf_post_boot.sh:system/etc/usf_post_boot.sh
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access.xml
+    NFCEE_ACCESS_PATH := device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/nfcee_access_debug.xml
 endif
 
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
+# WLAN
+PRODUCT_COPY_FILES += \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/xtwifi.conf:system/etc/xtwifi.conf \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/wlan/proprietary/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat
 
 ## PACKAGES ##
 
@@ -115,7 +123,7 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-	gps.default \
+	gps.msm8960 \
 	libloc_adapter \
 	libgps.utils \
 	libloc_eng \
@@ -123,7 +131,8 @@ PRODUCT_PACKAGES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/gps.conf:system/etc/gps.conf
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/gps.conf:system/etc/gps.conf
+	
 
 # HDMI
 PRODUCT_PACKAGES += \
@@ -191,66 +200,71 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
     Torch
 
+# WLAN
+PRODUCT_PACKAGES += \
+	libwfcu \
+	conn_init
+
 ## Config Files ##
 
 # GPS config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/gps.conf:system/etc/gps.conf
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/gps.conf:system/etc/gps.conf
 
 # Input device config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
-    device/oppo/find5/idc/qwerty.idc:system/usr/idc/qwerty.idc
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty.idc:system/usr/idc/qwerty.idc
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/keylayout/atmel_mxt_ts.kl:/system/usr/keylayout/atmel_mxt_ts.kl \
-    device/oppo/find5/keylayout/AVRCP.kl:/system/usr/keylayout/AVRCP.kl \
-    device/oppo/find5/keylayout/Button_Jack.kl:/system/usr/keylayout/Button_Jack.kl \
-    device/oppo/find5/keylayout/cyttsp-i2c.kl:/system/usr/keylayout/cyttsp-i2c.kl \
-    device/oppo/find5/keylayout/Generic.kl:/system/usr/keylayout/Generic.kl \
-    device/oppo/find5/keylayout/gpio-keys.kl:/system/usr/keylayout/gpio-keys.kl \
-    device/oppo/find5/keylayout/keypad_8960.kl:/system/usr/keylayout/keypad_8960.kl \
-    device/oppo/find5/keylayout/keypad_8960_liquid.kl:/system/usr/keylayout/keypad_8960_liquid.kl \
-    device/oppo/find5/keylayout/philips_remote_ir.kl:/system/usr/keylayout/philips_remote_ir.kl \
-    device/oppo/find5/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl \
-    device/oppo/find5/keylayout/ue_rf4ce_remote.kl:/system/usr/keylayout/rf4ce_remote.kl \
-    device/oppo/find5/keylayout/Vendor_045e_Product_028e.kl:/system/usr/keylayout/Vendor_045e_Product_028e.kl \
-    device/oppo/find5/keylayout/Vendor_046d_Product_c216.kl:/system/usr/keylayout/Vendor_046d_Product_c216.kl \
-    device/oppo/find5/keylayout/Vendor_046d_Product_c294.kl:/system/usr/keylayout/Vendor_046d_Product_c294.kl \
-    device/oppo/find5/keylayout/Vendor_046d_Product_c299.kl:/system/usr/keylayout/Vendor_046d_Product_c299.kl \
-    device/oppo/find5/keylayout/Vendor_046d_Product_c532.kl:/system/usr/keylayout/Vendor_046d_Product_c532.kl \
-    device/oppo/find5/keylayout/Vendor_054c_Product_0268.kl:/system/usr/keylayout/Vendor_054c_Product_0268.kl \
-    device/oppo/find5/keylayout/Vendor_05ac_Product_0239.kl:/system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-    device/oppo/find5/keylayout/Vendor_22b8_Product_093d.kl:/system/usr/keylayout/Vendor_22b8_Product_093d.kl 
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/atmel_mxt_ts.kl:/system/usr/keylayout/atmel_mxt_ts.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/AVRCP.kl:/system/usr/keylayout/AVRCP.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Button_Jack.kl:/system/usr/keylayout/Button_Jack.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/cyttsp-i2c.kl:/system/usr/keylayout/cyttsp-i2c.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Generic.kl:/system/usr/keylayout/Generic.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/gpio-keys.kl:/system/usr/keylayout/gpio-keys.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960.kl:/system/usr/keylayout/keypad_8960.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960_liquid.kl:/system/usr/keylayout/keypad_8960_liquid.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/philips_remote_ir.kl:/system/usr/keylayout/philips_remote_ir.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/ue_rf4ce_remote.kl:/system/usr/keylayout/rf4ce_remote.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_045e_Product_028e.kl:/system/usr/keylayout/Vendor_045e_Product_028e.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c216.kl:/system/usr/keylayout/Vendor_046d_Product_c216.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c294.kl:/system/usr/keylayout/Vendor_046d_Product_c294.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c299.kl:/system/usr/keylayout/Vendor_046d_Product_c299.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c532.kl:/system/usr/keylayout/Vendor_046d_Product_c532.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_054c_Product_0268.kl:/system/usr/keylayout/Vendor_054c_Product_0268.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_05ac_Product_0239.kl:/system/usr/keylayout/Vendor_05ac_Product_0239.kl \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_22b8_Product_093d.kl:/system/usr/keylayout/Vendor_22b8_Product_093d.kl 
 
 # Media config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # QC thermald config
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/thermald-8064.conf:/system/etc/thermald-8064.conf \
-	device/oppo/find5/configs/thermald-8960.conf:/system/etc/thermald-8960.conf \
-	device/oppo/find5/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8064.conf:/system/etc/thermald-8064.conf \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8960.conf:/system/etc/thermald-8960.conf \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
 
 # Sound configs
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-    device/oppo/find5/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
 
 # Vold config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/vold.fstab:system/etc/vold.fstab
 
 
 # WPA supplicant config
 PRODUCT_COPY_FILES += \
-    device/oppo/find5/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 ## Permissions ##
 
@@ -309,7 +323,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qmienabled=true \
     persist.thermal.monitor=true \
     ro.baseband.arch=msm \
-	ro.com.google.clientidbase=android-oppo \
+	ro.com.google.clientidbase=android-$(BOARD_VENDOR) \
     ro.qualcomm.bt.hci_transport=smd \
     ro.opengles.version=131072 \
     ro.product.wireless=WCN3660 \
@@ -333,14 +347,14 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi xxhdpi
 PRODUCT_LOCALES += en_US xhdpi xxhdpi
 
 # call the proprietary setup
-$(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)
+$(call inherit-product-if-exists, vendor/$(BOARD_VENDOR)/$(TARGET_DEVICE)/$(TARGET_DEVICE)-vendor.mk)
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_DEVICE := find5
-PRODUCT_NAME := cm_find5
-PRODUCT_BRAND := oppo
-PRODUCT_MODEL := FIND5
-PRODUCT_MANUFACTURER := oppo
+PRODUCT_DEVICE := $(TARGET_DEVICE)
+PRODUCT_NAME := cm_$(TARGET_DEVICE)
+PRODUCT_BRAND := $(BOARD_VENDOR)
+PRODUCT_MODEL := $(TARGET_DEVICE)
+PRODUCT_MANUFACTURER := $(BOARD_VENDOR)
