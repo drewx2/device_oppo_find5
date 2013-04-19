@@ -75,6 +75,18 @@ lib/libmmmpod.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
 
+lib/libchromatix_imx135_default_video.so
+lib/libchromatix_imx135_hfr_90fps.so
+lib/libchromatix_imx135_video_hd.so
+lib/libchromatix_imx135_hfr_120fps.so
+lib/libchromatix_imx135_preview.so
+lib/libchromatix_imx135_zsl.so
+lib/libchromatix_s5k6a3yx_default_video.so
+lib/libchromatix_s5k6a3yx_preview.so
+lib/libchromatix_s5k6a3yx_video_hd.so
+lib/libchromatix_s5k6a3yx_zsl.so
+
+
 # Media libraries
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
@@ -140,9 +152,6 @@ lib/hw/sensors.msm8960.so
 
 # Modem firmware
 
-# WLAN
-etc/firmware/wlan/prima/WCNSS_cfg.dat
-
 # Firmware
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw
@@ -158,7 +167,6 @@ etc/firmware/vidc.b02
 etc/firmware/vidc.b03
 etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
-
 
 lib/hw/lights.msm8960.so
 
