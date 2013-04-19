@@ -20,7 +20,9 @@
     <!-- 30 seconds for default screen timeout -->
     <integer name="def_screen_off_timeout">30000</integer>
     <!-- Set the automatic brightness mode on by default -->
-    <bool name="def_screen_brightness_automatic_mode">true</bool>
+    <bool name="def_screen_brightness_automatic_mode">false</bool>
     <!-- Default screen brightness, from 0 to 255. 87 is 34%. -->
-    <integer name="def_screen_brightness">180</integer>
+    <integer name="def_screen_brightness">150</integer>
+	<bool name="assisted_gps_enabled">false</bool>
+	<integer name="def_battery_style">3</integer>
 </resources>
