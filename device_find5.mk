@@ -100,7 +100,7 @@ PRODUCT_PACKAGES += \
     hci_qcomm_init
 
 # Camera
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
