@@ -32,22 +32,19 @@ PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/at.rle:root/at.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/factorylogo.rle:root/factorylogo.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fastboot.rle:root/fastboot.rle \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fstab.qcom:root/fstab.qcom \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fstab.qcom:root/fstab.qcom \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.at.rc:root/init.at.rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/initlogo.rle:root/initlogo.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.$(BOARD_VENDOR).usb.rc:root/init.$(BOARD_VENDOR).usb.rc \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.target.rc:root/init.target.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.target.rc:root/init.target.rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.rc:root/init.qcom.rc \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.sh:root/init.qcom.sh \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.sh:root/init.qcom.sh \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.rf.rc:root/init.rf.rc \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
-	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/wlan.rle:root/wlan.rle \
-
-#PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/wlan.rle:root/wlan.rle
 
 # Qualcomm scripts
 PRODUCT_COPY_FILES += \
