@@ -197,11 +197,6 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
     Torch
 
-# WLAN
-PRODUCT_PACKAGES += \
-	libwfcu \
-	conn_init
-
 ## Config Files ##
 
 # GPS config
