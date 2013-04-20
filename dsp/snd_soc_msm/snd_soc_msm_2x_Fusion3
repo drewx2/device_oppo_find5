@@ -73,6 +73,24 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFiHDMI Speaker"
+
+	EnableSequence
+		'HDMI Mixer MultiMedia1':1:1
+		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:1
+	EndSequence
+
+	DisableSequence
+		'HDMI Mixer MultiMedia1':1:0
+		'SLIMBUS_0_RX Audio Mixer MultiMedia1':1:0
+	EndSequence
+
+	# ALSA PCMs
+	CapturePCM 0
+	PlaybackPCM 0
+EndSection
+
+SectionVerb
 	Name "HiFiBT SCO Rx"
 
 	EnableSequence
@@ -301,6 +319,25 @@ SectionVerb
 
 	# ALSA PCMs
 	PlaybackPCM 4
+
+EndSection
+}
+SectionUseCase."HiFi2" {
+Comment "Music playback use case for MM2 FE"
+SectionVerb
+	Name "HiFi2"
+
+	EnableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:1
+	EndSequence
+
+	DisableSequence
+		'SLIMBUS_0_RX Audio Mixer MultiMedia2':1:0
+	EndSequence
+
+	# ALSA PCMs
+	CapturePCM 1
+	PlaybackPCM 1
 
 EndSection
 
@@ -1054,6 +1091,24 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFi TunnelHDMI Speaker"
+
+	EnableSequence
+		'HDMI Mixer MultiMedia4':1:1
+		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:1
+	EndSequence
+
+	DisableSequence
+		'HDMI Mixer MultiMedia4':1:0
+		'SLIMBUS_0_RX Audio Mixer MultiMedia4':1:0
+	EndSequence
+
+	# ALSA PCMs
+	PlaybackPCM 9
+
+EndSection
+
+SectionVerb
 	Name "HiFi TunnelBT SCO Rx"
 
 	EnableSequence
@@ -1372,8 +1427,8 @@ SectionDevice
 		'RX3 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP2':0:RX6
 		'RX4 DSM MUX':0:DSM_INV
-		'LINEOUT1 Volume':1:66
-		'LINEOUT3 Volume':1:66
+		'LINEOUT1 Volume':1:100
+		'LINEOUT3 Volume':1:100
 		'SLIM TX3 MUX':0:RMIX3
 		'RX3 Digital Volume':1:68
 		'RX4 Digital Volume':1:68
@@ -1383,6 +1438,8 @@ SectionDevice
 		'RX3 MIX1 INP1':0:ZERO
 		'RX3 MIX1 INP2':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
+		'RX3 Digital Volume':1:68
+		'RX4 Digital Volume':1:68
 		'LINEOUT1 Volume':1:0
 		'LINEOUT3 Volume':1:0
 		'SLIM TX3 MUX':0:ZERO
@@ -1403,8 +1460,8 @@ SectionDevice
 		'RX3 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP2':0:RX6
 		'RX4 DSM MUX':0:DSM_INV
-		'LINEOUT1 Volume':1:66
-		'LINEOUT3 Volume':1:66
+		'LINEOUT1 Volume':1:100
+		'LINEOUT3 Volume':1:100
 		'SLIM TX3 MUX':0:RMIX3
 		'RX3 Digital Volume':1:68
 		'RX4 Digital Volume':1:68
@@ -1416,7 +1473,7 @@ SectionDevice
 		'RX4 DSM MUX':0:CIC_OUT
 		'LINEOUT1 Volume':1:0
 		'LINEOUT3 Volume':1:0
-		'SLIM TX3 MUX':0:ZERO		
+		'SLIM TX3 MUX':0:ZERO
 	EndSequence
 
 	ACDBID	15:1
@@ -1454,6 +1511,8 @@ SectionDevice
 		'RX2 MIX1 INP2':0:ZERO
 		'HPHL DAC Switch':1:0
 		'HPHR DAC Switch':1:0
+		'RX1 Digital Volume':1:68
+		'RX2 Digital Volume':1:68
 		'HPHL Volume':1:0
 		'HPHR Volume':1:0
 		'SLIM TX3 MUX':0:ZERO
@@ -1930,7 +1989,7 @@ SectionDevice
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
 		'ADC3 Volume':1:100
-    'DEC4 Volume':1:68
+    	'DEC4 Volume':1:68
 		'SLIM TX8 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
 		'ADC4 Volume':1:100
@@ -1950,7 +2009,7 @@ SectionDevice
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
-	ACDBID	41:2
+	ACDBID	6:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -1984,7 +2043,7 @@ SectionDevice
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
-	ACDBID	51:2
+	ACDBID	4:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -2415,6 +2474,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC8
 		'DEC8 MUX':0:ADC2
+		'DEC8 Volume':1:68
 		'ADC2 Volume':1:100
 	EndSequence
 
@@ -2422,6 +2482,7 @@ SectionDevice
 		'TTY Mode':0:ZERO
 		'SLIM TX7 MUX':0:ZERO
 		'DEC8 MUX':0:ZERO
+		'DEC8 Volume':1:68
 		'ADC2 Volume':1:0
 	EndSequence
 
