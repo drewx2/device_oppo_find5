@@ -93,14 +93,15 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libalsa-intf \
     libaudioutils \
-	libaudio-resampler
+	libaudio-resampler \
+	libaudioparameter
 
 # Bluetooth
 PRODUCT_PACKAGES += \
     hci_qcomm_init
 
 # Camera
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
@@ -130,7 +131,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/gps.conf:system/etc/gps.conf
 	
-
 # HDMI
 PRODUCT_PACKAGES += \
     hdmid
@@ -246,6 +246,14 @@ PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8064.conf:/system/etc/thermald-8064.conf \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8960.conf:/system/etc/thermald-8960.conf \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
+
+# Qualcomm
+PRODUCT_COPY_FILES += \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/capability.xml:/system/etc/capability.xml \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/qosmgr_rules.xml:/system/etc/qosmgr_rules.xml \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/OperatorPolicy.xml:/system/etc/OperatorPolicy.xml \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/UserPolicy.xml:/system/etc/UserPolicy.xml \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/wfdconfig.xml:/system/etc/wfdconfig.xml
 
 # Sound configs
 PRODUCT_COPY_FILES += \
