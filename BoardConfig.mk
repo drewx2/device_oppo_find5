@@ -40,12 +40,12 @@ USE_CAMERA_STUB := true
 
 # Board / Kernel Setup
 TARGET_ARCH := arm
-#TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_SSR_ENABLED
-#TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp -DQCOM_SSR_ENABLED
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_SSR_ENABLED
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+#TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp -DQCOM_SSR_ENABLED
+#TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_FPU += neon-vfpv4
+#TARGET_ARCH_VARIANT_FPU += neon-vfpv4
 TARGET_CPU_ABI  := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -54,7 +54,6 @@ BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
-KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
 # Krait Optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -70,6 +69,7 @@ BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER	:= true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_MM_AUDIO := true
 
 # Bootloader
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -82,14 +82,13 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
 #TARGET_PROVIDES_CAMERA_HAL := true
-USE_BIONIC_HEADER := true
 
 # Flags
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
 
 # Preload bootanimation
-TARGET_BOOTANIMATION_PRELOAD := true
+#TARGET_BOOTANIMATION_PRELOAD := true
 
 # Graphics
 BOARD_EGL_CFG := device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/egl.cfg
@@ -170,4 +169,3 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_MAX_PARTITIONS := 36
 
 BOARD_WANTS_EMMC_BOOT := true
-BOARD_SUPPRESS_EMMC_WIPE := true
