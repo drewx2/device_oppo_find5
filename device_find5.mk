@@ -108,8 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs
+	e2fsck
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -191,7 +190,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+	com.android.future.usb.accessory
 
 # Torch
 #PRODUCT_PACKAGES += \
