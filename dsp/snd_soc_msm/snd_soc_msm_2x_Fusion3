@@ -1397,7 +1397,7 @@ SectionDevice
 		'IIR1 Enable Band4':1:1
 		'IIR1 Enable Band5':1:1
 		'RX1 MIX2 INP1':0:IIR1
-		'RX1 Digital Volume':1:75
+		'RX1 Digital Volume':1:85
 		'RX1 HPF Switch':1:1
 	EndSequence
 
@@ -1502,8 +1502,6 @@ SectionDevice
 		'RX3 MIX1 INP1':0:ZERO
 		'RX3 MIX1 INP2':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
-		'RX3 Digital Volume':1:68
-		'RX4 Digital Volume':1:68
 		'LINEOUT1 Volume':1:0
 		'LINEOUT3 Volume':1:0
 		'SLIM TX3 MUX':0:ZERO
@@ -2294,7 +2292,7 @@ SectionDevice
 		'IIR1 INP1 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	52:2
+	ACDBID	42:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3381,11 +3379,11 @@ SectionModifier
 	Name "Play LPABT SCO WB Rx"
 
 	EnableSequence
-		'"INTERNAL_BT_SCO_RX Audio Mixer MultiMedia3':1:1
+		'INTERNAL_BT_SCO_RX Audio Mixer MultiMedia3':1:1
 	EndSequence
 
 	DisableSequence
-		'"INTERNAL_BT_SCO_RX Audio Mixer MultiMedia3':1:0
+		'INTERNAL_BT_SCO_RX Audio Mixer MultiMedia3':1:0
 	EndSequence
 
 	# ALSA PCMs
@@ -3395,6 +3393,22 @@ EndSection
 
 SectionModifier
 	Name "Play LPAPROXY Rx"
+
+	EnableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia3':1:1
+	EndSequence
+
+	DisableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia3':1:0
+	EndSequence
+
+	# ALSA PCMs
+	PlaybackPCM 4
+
+EndSection
+
+SectionModifier
+	Name "Play LPAUSB PROXY Rx"
 
 	EnableSequence
 		'AFE_PCM_RX Audio Mixer MultiMedia3':1:1
@@ -3457,6 +3471,40 @@ SectionModifier
 	# ALSA PCMs
 	CapturePCM 0
 	PlaybackPCM 0
+
+EndSection
+
+SectionModifier
+	Name "Capture Music Compressed"
+
+	EnableSequence
+		'MultiMedia4 Mixer SLIM_0_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia4 Mixer SLIM_0_TX':1:0
+	EndSequence
+
+	# ALSA PCMs
+	CapturePCM 9
+	PlaybackPCM 9
+
+EndSection
+
+SectionModifier
+	Name "Capture Music CompressedMI2S"
+
+	EnableSequence
+		'MultiMedia4 Mixer MI2S_TX':1:1
+	EndSequence
+
+	DisableSequence
+		'MultiMedia4 Mixer MI2S_TX':1:0
+	EndSequence
+
+	# ALSA PCMs
+	CapturePCM 9
+	PlaybackPCM 9
 
 EndSection
 
