@@ -25,6 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+/dev/pn544          	  0660   nfc		system
+
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     qcom_diag
 
