@@ -7,6 +7,10 @@ Sound
 Sensors
 Data
 Bluetooth
+SMS / MMS
+LEDs
+Wifi
+Location
 
 Not Working:
-Everything else
+Camera
