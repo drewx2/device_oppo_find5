@@ -169,12 +169,13 @@ etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
 
 lib/hw/lights.msm8960.so
+lib/hw/raw_part.default.so
 
 vendor/lib/libwvm.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/hw/power.qcom.so
+#vendor/lib/hw/power.qcom.so
 lib/lib_dlb_msd.so
 lib/libxml.so
-
+lib/libSHIMDivxDrm.so
