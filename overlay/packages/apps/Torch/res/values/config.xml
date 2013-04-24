@@ -20,5 +20,9 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    <bool name="useCameraInterface">true</bool>
+
+	<bool name="useCameraInterface">false</bool>
+	<!-- Find 5 does not use standard sysfs flashlight path -->
+	<string name="flashDevice">/sys/class/leds/spotlight/brightness</string>
+
 </resources>
