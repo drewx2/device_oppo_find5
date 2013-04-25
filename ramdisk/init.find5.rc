@@ -59,7 +59,7 @@ on early-boot
 on fs
 	mkdir /system
 	mkdir /data 0771 system system
-	mount_all fstab.qcom
+	mount_all fstab.find5
 
 	#mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait ro barrier=1
 	#mount ext4 /dev/block/platform/msm_sdcc.1/by-name/userdata /data wait rw nosuid nodev barrier=1 noauto_da_alloc
