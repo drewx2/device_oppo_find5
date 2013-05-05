@@ -871,6 +871,7 @@ SectionVerb
 
 EndSection
 }
+
 SectionUseCase."FM Digital Radio" {
 Comment "FM Radio use case"
 SectionVerb
@@ -1086,18 +1087,18 @@ SectionVerb
 EndSection
 
 SectionVerb
-        Name "HiFi TunnelPROXY Rx"
+	Name "HiFi TunnelPROXY Rx"
 
-        EnableSequence
-                'AFE_PCM_RX Audio Mixer MultiMedia4':1:1
-        EndSequence
+	EnableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia4':1:1
+	EndSequence
 
-        DisableSequence
-                'AFE_PCM_RX Audio Mixer MultiMedia4':1:0
-        EndSequence
+	DisableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia4':1:0
+	EndSequence
 
-        # ALSA PCMs
-        PlaybackPCM 9
+	# ALSA PCMs
+	PlaybackPCM 9
 
 EndSection
 
@@ -1849,7 +1850,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC8
 		'DEC8 MUX':0:ADC2
-		'ADC2 Volume':1:100
+		'ADC2 Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -3589,8 +3590,8 @@ SectionModifier
 	EndSequence
 
 	# ALSA PCMs
-	    PlaybackPCM 1
-	    CapturePCM 1
+	PlaybackPCM 1
+	CapturePCM 1
 
 EndSection
 

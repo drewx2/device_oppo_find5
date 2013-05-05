@@ -32,18 +32,18 @@ PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/at.rle:root/at.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/factorylogo.rle:root/factorylogo.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fastboot.rle:root/fastboot.rle \
-	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fstab.qcom:root/fstab.qcom \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/fstab.$(TARGET_DEVICE):root/fstab.$(TARGET_DEVICE) \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.at.rc:root/init.at.rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/initlogo.rle:root/initlogo.rle \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.$(BOARD_VENDOR).usb.rc:root/init.$(BOARD_VENDOR).usb.rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.target.rc:root/init.target.rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
-	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.rc:root/init.qcom.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.$(TARGET_DEVICE).rc:root/init.$(TARGET_DEVICE).rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.sh:root/init.qcom.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/init.rf.rc:root/init.rf.rc \
-	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/ueventd.$(TARGET_DEVICE).rc:root/ueventd.$(TARGET_DEVICE).rc \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/ramdisk/wlan.rle:root/wlan.rle
 
 # Qualcomm scripts
@@ -78,7 +78,7 @@ PRODUCT_COPY_FILES += \
 # WLAN
 PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/xtwifi.conf:system/etc/xtwifi.conf \
-	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/wlan/proprietary/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat
 
 ## PACKAGES ##
 
@@ -147,7 +147,7 @@ PRODUCT_PACKAGES += \
 
 # Keystore
 PRODUCT_PACKAGES += \
-	keystore.msm8960
+	keystore.default
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -170,6 +170,8 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+	libOmxMp3Dec \
+	libOmxAc3HwDec \
     libstagefrighthw
 
 # Power
@@ -320,7 +322,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.vr.enable=false \
     persist.audio.handset.mic=digital \
     persist.audio.speaker.location=high \
-    persist.gps.qmienabled=true \
     persist.thermal.monitor=true \
     ro.baseband.arch=msm \
 	ro.com.google.clientidbase=android-$(BOARD_VENDOR) \
@@ -343,14 +344,24 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_LOCALES += en_US xhdpi xxhdpi
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	ro.adb.secure=0 \
+	ro.secure=0 \
+	ro.debuggable=1 \
+	persist.sys.usb.config=mtp
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/$(BOARD_VENDOR)/$(TARGET_DEVICE)/$(TARGET_DEVICE)-vendor.mk)
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# This is the find5-specific audio package (will add oppo package after I get some feedback)
+#$(call inherit-product, device/oppo/oem/AudioPackageOppo.mk)
+$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_DEVICE := $(TARGET_DEVICE)

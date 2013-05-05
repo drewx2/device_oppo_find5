@@ -32,10 +32,10 @@ bin/v4l2-qcamera-app
 
 # Audio
 lib/libacdbloader.so
-lib/libalsautils.so
+#lib/libalsautils.so
 lib/libaudcal.so
-lib/libaudioalsa.so
-lib/libaudioparsers.so
+#lib/libaudioalsa.so
+#lib/libaudioparsers.so
 #lib/libaudioparameter.so
 
 # Graphics
@@ -175,7 +175,7 @@ vendor/lib/libwvm.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/drm/libdrmwvmplugin.so
-#vendor/lib/hw/power.qcom.so
+vendor/lib/hw/power.qcom.so
 lib/lib_dlb_msd.so
 lib/libxml.so
 lib/libSHIMDivxDrm.so
