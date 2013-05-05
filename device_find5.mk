@@ -88,11 +88,11 @@ PRODUCT_PACKAGES += \
 	audio.primary.default \
 	audio.primary.msm8960 \
 	audio.a2dp.default \
-    audio_policy.default \
+	audio_policy.default \
 	audio_policy.msm8960 \
-    audio.r_submix.default \
-    libalsa-intf \
-    libaudioutils \
+	audio.r_submix.default \
+	libalsa-intf \
+	libaudioutils \
 	libaudio-resampler \
 	libaudioparameter
 
@@ -102,7 +102,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 #PRODUCT_PACKAGES += \
-    camera.msm8960 \
+	camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
 
@@ -112,11 +112,11 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    libgenlock \
-    liboverlay \
-    copybit.msm8960 \
-    gralloc.msm8960 \
-    hwcomposer.msm8960
+	libgenlock \
+	liboverlay \
+	copybit.msm8960 \
+	gralloc.msm8960 \
+	hwcomposer.msm8960
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -132,11 +132,11 @@ PRODUCT_COPY_FILES += \
 	
 # HDMI
 PRODUCT_PACKAGES += \
-    hdmid
+	hdmid
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8960
+	lights.msm8960
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -151,44 +151,44 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_ndef \
-    libnfc_jni \
-    Nfc \
-    Tag \
-    com.android.nfc_extras
+	libnfc \
+	libnfc_ndef \
+	libnfc_jni \
+	Nfc \
+	Tag \
+	com.android.nfc_extras
 
 # OMX
 PRODUCT_PACKAGES += \
 	libmm-omxcore \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
+	libc2dcolorconvert \
+	libdivxdrmdecrypt \
+	libOmxCore \
+	libOmxVdec \
+	libOmxVenc \
+	libOmxAacEnc \
+	libOmxAmrEnc \
+	libOmxEvrcEnc \
+	libOmxQcelp13Enc \
 	libOmxMp3Dec \
 	libOmxAc3HwDec \
-    libstagefrighthw
+	libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
-    power.default
+	power.default
 
 # Recovery
 PRODUCT_PACKAGES += \
-    init.recovery.qcom.rc \
-    choice_fn \
-    power_test \
-    offmode_charging \
-    detect_key
+	init.recovery.qcom.rc \
+	choice_fn \
+	power_test \
+	offmode_charging \
+	detect_key
 
 # QCOM rngd
 PRODUCT_PACKAGES += \
-    qrngd
+	qrngd
 
 # USB
 PRODUCT_PACKAGES += \
@@ -196,46 +196,46 @@ PRODUCT_PACKAGES += \
 
 # Torch
 #PRODUCT_PACKAGES += \
-    Torch
+	Torch
 
 ## Config Files ##
 
 # GPS config
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/gps.conf:system/etc/gps.conf
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/gps.conf:system/etc/gps.conf
 
 # Input device config
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty.idc:system/usr/idc/qwerty.idc
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/idc/qwerty.idc:system/usr/idc/qwerty.idc
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/atmel_mxt_ts.kl:/system/usr/keylayout/atmel_mxt_ts.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/AVRCP.kl:/system/usr/keylayout/AVRCP.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Button_Jack.kl:/system/usr/keylayout/Button_Jack.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/cyttsp-i2c.kl:/system/usr/keylayout/cyttsp-i2c.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Generic.kl:/system/usr/keylayout/Generic.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/gpio-keys.kl:/system/usr/keylayout/gpio-keys.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960.kl:/system/usr/keylayout/keypad_8960.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960_liquid.kl:/system/usr/keylayout/keypad_8960_liquid.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/philips_remote_ir.kl:/system/usr/keylayout/philips_remote_ir.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/ue_rf4ce_remote.kl:/system/usr/keylayout/rf4ce_remote.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_045e_Product_028e.kl:/system/usr/keylayout/Vendor_045e_Product_028e.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c216.kl:/system/usr/keylayout/Vendor_046d_Product_c216.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c294.kl:/system/usr/keylayout/Vendor_046d_Product_c294.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c299.kl:/system/usr/keylayout/Vendor_046d_Product_c299.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c532.kl:/system/usr/keylayout/Vendor_046d_Product_c532.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_054c_Product_0268.kl:/system/usr/keylayout/Vendor_054c_Product_0268.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_05ac_Product_0239.kl:/system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_22b8_Product_093d.kl:/system/usr/keylayout/Vendor_22b8_Product_093d.kl 
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/atmel_mxt_ts.kl:/system/usr/keylayout/atmel_mxt_ts.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/AVRCP.kl:/system/usr/keylayout/AVRCP.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Button_Jack.kl:/system/usr/keylayout/Button_Jack.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/cyttsp-i2c.kl:/system/usr/keylayout/cyttsp-i2c.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Generic.kl:/system/usr/keylayout/Generic.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/gpio-keys.kl:/system/usr/keylayout/gpio-keys.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960.kl:/system/usr/keylayout/keypad_8960.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/keypad_8960_liquid.kl:/system/usr/keylayout/keypad_8960_liquid.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/philips_remote_ir.kl:/system/usr/keylayout/philips_remote_ir.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/ue_rf4ce_remote.kl:/system/usr/keylayout/rf4ce_remote.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_045e_Product_028e.kl:/system/usr/keylayout/Vendor_045e_Product_028e.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c216.kl:/system/usr/keylayout/Vendor_046d_Product_c216.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c294.kl:/system/usr/keylayout/Vendor_046d_Product_c294.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c299.kl:/system/usr/keylayout/Vendor_046d_Product_c299.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_046d_Product_c532.kl:/system/usr/keylayout/Vendor_046d_Product_c532.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_054c_Product_0268.kl:/system/usr/keylayout/Vendor_054c_Product_0268.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_05ac_Product_0239.kl:/system/usr/keylayout/Vendor_05ac_Product_0239.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keylayout/Vendor_22b8_Product_093d.kl:/system/usr/keylayout/Vendor_22b8_Product_093d.kl 
 
 # Media config
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_codecs.xml:system/etc/media_codecs.xml
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # QC thermald config
 PRODUCT_COPY_FILES += \
@@ -253,19 +253,19 @@ PRODUCT_COPY_FILES += \
 
 # Sound configs
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm:/system/etc/snd_soc_msm/snd_soc_msm \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
 
 # Vold config
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/vold.fstab:system/etc/vold.fstab
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/vold.fstab:system/etc/vold.fstab
 
 
 # WPA supplicant config
 PRODUCT_COPY_FILES += \
-    device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 ## Permissions ##
 
@@ -277,62 +277,62 @@ PRODUCT_COPY_FILES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardwardware.sensor.gyroscope.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardwardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.compass.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.compass.xml \
+	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.setupwizard.enable_bypass=1 \
-    ro.sf.lcd_density=480 \
-    ro.hdmi.enable=true \
-    ro.com.google.locationfeatures=1 \
+	ro.setupwizard.enable_bypass=1 \
+	ro.sf.lcd_density=480 \
+	ro.hdmi.enable=true \
+	ro.com.google.locationfeatures=1 \
 	dalvik.vm.heapstartsize=8m \
 	dalvik.vm.heapgrowthlimit=192m \
 	dalvik.vm.heapsize=256m \
 	dalvik.vm.heaputilization=0.25 \
 	dalvik.vm.heapidealfree=8388608 \
 	dalvik.vm.heapconcurrentstart=2097152 \
-    keyguard.no_require_sim=true
+	keyguard.no_require_sim=true
     
 PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true \
-    debug.composition.type=gpu \
-    debug.egl.hw=1 \
+	com.qc.hardware=true \
+	debug.composition.type=gpu \
+	debug.egl.hw=1 \
 	debug.mdpcomp.maxlayer=2 \
-    debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
-    lpa.decode=false \
+	debug.mdpcomp.logs=0 \
+	debug.sf.hw=1 \
+	dev.pm.dyn_samplingrate=1 \
+	lpa.decode=false \
 	mpq.audio.decode=true \
-    persist.audio.fluence.mode=endfire \
-    persist.audio.vr.enable=false \
-    persist.audio.handset.mic=digital \
-    persist.audio.speaker.location=high \
-    persist.thermal.monitor=true \
-    ro.baseband.arch=msm \
+	persist.audio.fluence.mode=endfire \
+	persist.audio.vr.enable=false \
+	persist.audio.handset.mic=digital \
+	persist.audio.speaker.location=high \
+	persist.thermal.monitor=true \
+	ro.baseband.arch=msm \
 	ro.com.google.clientidbase=android-$(BOARD_VENDOR) \
-    ro.qualcomm.bt.hci_transport=smd \
-    ro.opengles.version=131072 \
-    ro.product.wireless=WCN3660 \
-    ro.qc.sdk.audio.fluencetype=none \
+	ro.qualcomm.bt.hci_transport=smd \
+	ro.opengles.version=131072 \
+	ro.product.wireless=WCN3660 \
+	ro.qc.sdk.audio.fluencetype=none \
 	ro.qc.sdk.audio.ssr=false \
-    ro.qualcomm.bt.hci_transport=smd \
-    ro.use_data_netmgrd=true \
-    wifi.interface=wlan0
+	ro.qualcomm.bt.hci_transport=smd \
+	ro.use_data_netmgrd=true \
+	wifi.interface=wlan0
 
 # We have enough space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
