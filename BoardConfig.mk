@@ -38,7 +38,7 @@ USE_CAMERA_STUB := true
 
 # Board / Kernel Setup
 TARGET_ARCH := arm
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_COMPRESSED_AUDIO_ENABLED -DQCOM_FM_ENABLED -DQCOM_OUTPUT_FLAGS_ENABLED
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_SSR_ENABLED
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI  := armeabi-v7a
