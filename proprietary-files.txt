@@ -32,11 +32,10 @@ bin/v4l2-qcamera-app
 
 # Audio
 lib/libacdbloader.so
-#lib/libalsautils.so
+lib/libalsautils.so
 lib/libaudcal.so
-#lib/libaudioalsa.so
-#lib/libaudioparsers.so
-#lib/libaudioparameter.so
+lib/libaudioalsa.so
+lib/libaudioparsers.so
 
 # Graphics
 lib/libc2d2_a3xx.so
@@ -92,8 +91,6 @@ lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 lib/libOmxAacDec.so
 lib/libOmxWmaDec.so
-#lib/libqdutils.so
-#lib/libqdMetaData.so
 
 lib/libdrmdiag.so
 lib/libdrmfs.so
